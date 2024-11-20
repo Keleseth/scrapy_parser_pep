@@ -15,7 +15,7 @@ from pep_parse.utils import extract_text_with_pattern
 class PepSpider(scrapy.Spider):
     name = 'pep'
     allowed_domains = ['peps.python.org']
-    start_urls = [f'https://{domain}' for domain in allowed_domains]
+    start_urls = [f'https://{domain}/' for domain in allowed_domains]
 
     def parse(self, response):
         for pep_link in response.css(LINK_TO_PEP_SELECTOR):
