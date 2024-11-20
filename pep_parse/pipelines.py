@@ -1,4 +1,3 @@
-
 import csv
 from collections import defaultdict
 from datetime import datetime
@@ -33,7 +32,9 @@ class PepParsePipeline:
 
         with open(output_file, 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
-            data = [CSV_STATUS_HEADERS]
-            data.extend(list(self.status_count.items()))
-            data.append(['Total', sum(self.status_count.values())])
+            data = (
+                CSV_STATUS_HEADERS,
+                *self.status_count.items(),
+                ('Total', sum(self.status_count.values()))
+            )
             writer.writerows(data)

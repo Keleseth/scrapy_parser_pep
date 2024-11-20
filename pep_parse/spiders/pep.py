@@ -3,11 +3,11 @@ import scrapy
 from pep_parse.exceptions import PatternMatchError
 from pep_parse.items import PepParseItem
 from pep_parse.settings import (
-    PEP_ITEM_KEYS,
-    TITLE_PATTERN,
     LINK_TO_PEP_SELECTOR,
+    PEP_ITEM_KEYS,
+    PEP_STATUS_SELECTOR,
     PEP_TITLE_SELECTOR,
-    PEP_STATUS_SELECTOR
+    TITLE_PATTERN,
 )
 from pep_parse.utils import extract_text_with_pattern
 

@@ -4,12 +4,11 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent.parent
 RESULTS_DIR = 'results'
 
-PROJECT_NAME = 'pep_parse'
+BOT_NAME = 'pep_parse'
 
-BOT_NAME = PROJECT_NAME
+NEWSPIDER_MODULE = f'{BOT_NAME}.spiders'
+SPIDER_MODULES = [NEWSPIDER_MODULE]
 
-SPIDER_MODULES = [f'{PROJECT_NAME}.spiders']
-NEWSPIDER_MODULE = f'{PROJECT_NAME}.spiders'
 
 ROBOTSTXT_OBEY = True
 
@@ -51,7 +50,7 @@ ITEM_PIPELINES = {
 }
 
 # Заголовки csv файла со сводкой по статусам PEP
-CSV_STATUS_HEADERS = ['Статус', 'Количество']
+CSV_STATUS_HEADERS = ('Статус', 'Количество')
 
 # logger
 LOGS_DIR = BASE_DIR / 'logs'
