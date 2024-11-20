@@ -4,15 +4,19 @@ from collections import defaultdict
 from datetime import datetime
 
 from pep_parse.settings import (
-    OUTPUT_STATUS_RESULTS,
-    DATE_FORMAT,
     BASE_DIR,
+    CSV_STATUS_HEADERS,
+    DATE_FORMAT,
+    OUTPUT_STATUS_RESULTS,
     RESULTS_DIR,
-    CSV_STATUS_HEADERS
 )
 
 
 class PepParsePipeline:
+
+    def __init__(self):
+        self.results_dir = BASE_DIR / RESULTS_DIR
+        self.results_dir.mkdir(exist_ok=True, parents=True)
 
     def open_spider(self, spider):
         self.status_count = defaultdict(int)
@@ -23,14 +27,13 @@ class PepParsePipeline:
 
     def close_spider(self, spider):
         now = datetime.now().strftime(DATE_FORMAT)
-        results_dir = BASE_DIR / RESULTS_DIR
-        results_dir.mkdir(exist_ok=True, parents=True)
-        output_file = results_dir / OUTPUT_STATUS_RESULTS.format(now, 'csv')
+        output_file = (
+            self.results_dir / OUTPUT_STATUS_RESULTS.format(now, 'csv')
+        )
 
         with open(output_file, 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
-            writer.writerow(CSV_STATUS_HEADERS)
-            writer.writerows(self.status_count.items())
-            writer.writerow(
-                ['Total', sum(self.status_count.values())]
-            )
+            data = [CSV_STATUS_HEADERS]
+            data.extend(list(self.status_count.items()))
+            data.append(['Total', sum(self.status_count.values())])
+            writer.writerows(data)

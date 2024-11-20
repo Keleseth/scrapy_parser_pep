@@ -4,10 +4,12 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent.parent
 RESULTS_DIR = 'results'
 
-BOT_NAME = 'pep_parse'
+PROJECT_NAME = 'pep_parse'
 
-SPIDER_MODULES = ['pep_parse.spiders']
-NEWSPIDER_MODULE = 'pep_parse.spiders'
+BOT_NAME = PROJECT_NAME
+
+SPIDER_MODULES = [f'{PROJECT_NAME}.spiders']
+NEWSPIDER_MODULE = f'{PROJECT_NAME}.spiders'
 
 ROBOTSTXT_OBEY = True
 

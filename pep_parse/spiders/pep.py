@@ -1,5 +1,7 @@
 import scrapy
 
+from pep_parse.exceptions import PatternMatchError
+from pep_parse.items import PepParseItem
 from pep_parse.settings import (
     PEP_ITEM_KEYS,
     TITLE_PATTERN,
@@ -7,15 +9,13 @@ from pep_parse.settings import (
     PEP_TITLE_SELECTOR,
     PEP_STATUS_SELECTOR
 )
-from pep_parse.exceptions import PatternMatchError
-from pep_parse.items import PepParseItem
 from pep_parse.utils import extract_text_with_pattern
 
 
 class PepSpider(scrapy.Spider):
     name = 'pep'
     allowed_domains = ['peps.python.org']
-    start_urls = ['https://peps.python.org/']
+    start_urls = [f'https://{domain}' for domain in allowed_domains]
 
     def parse(self, response):
         for pep_link in response.css(LINK_TO_PEP_SELECTOR):
