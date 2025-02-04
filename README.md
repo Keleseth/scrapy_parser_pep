@@ -1,7 +1,10 @@
 # Парсер документации PEP на основе фреймворка Scrapy
 
-### Технологии и инструменты  
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Scrapy](https://img.shields.io/badge/Scrapy-%23007ACC.svg?style=for-the-badge&logo=Scrapy&logoColor=white) ![Twisted](https://img.shields.io/badge/Twisted-%23007ACC.svg?style=for-the-badge&logo=python&logoColor=white) ![cssselect](https://img.shields.io/badge/cssselect-%23007ACC.svg?style=for-the-badge&logo=python&logoColor=white) ![pytest](https://img.shields.io/badge/pytest-%23007ACC.svg?style=for-the-badge&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Scrapy](https://img.shields.io/badge/Scrapy-FF6347?style=for-the-badge&logo=python&logoColor=white)
+![Twisted](https://img.shields.io/badge/Twisted-6A5ACD?style=for-the-badge&logo=twilio&logoColor=white)
+![cssselect](https://img.shields.io/badge/cssselect-FFD700?style=for-the-badge&logo=css3&logoColor=white)
+![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
 
 
 ## Описание
